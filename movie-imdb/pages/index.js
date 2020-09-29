@@ -52,7 +52,7 @@ export default function Home() {
           </div>
         </div>
         <div className="container">
-          <p className="titleHeader">Top Rate</p>topRate
+          <p className="titleHeader">Top Rate</p>
           <div className="row">
             {topRate.map((item) => (
               <div className="col" key={item.id}>
@@ -61,8 +61,8 @@ export default function Home() {
                   src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
                 />
                 <span>
-                  {item.original_title.length > 30
-                    ? item.original_title.substr(0, 30) + "...."
+                  {item.original_title.length > 8
+                    ? item.original_title.substr(0, 8) + "...."
                     : item.original_title}
                 </span>
               </div>

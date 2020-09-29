@@ -56,25 +56,30 @@ main {
   width: 100%;
 }
 .row {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(6, 1fr);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: scroll;
+  overflow: scroll; */
+  width: 100%;
 }
 .col {
-  display: inline-block;
+  /* display: inline-block;
   width: 250px;
   height: 150px;
   margin: 5px 10px;
-  background-color: #151f2e;
+  background-color: #151f2e; */
+  width: 12%;
+  margin-right: 2%;
+  float: right;
 }
 .col span {
   font-size: 20px;
 }
 .cardImg {
-  width: 250px;
+  /* width: 250px;
   height: 130px;
-  object-fit: cover;
+  object-fit: cover; */
+  width: 100%;
 }
