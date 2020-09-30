@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #182131;
 }
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -12,22 +14,21 @@
   justify-content: space-between;
   align-items: center;
 }
-header {
-  background-color: #182131;
-}
-header .text-header {
+
+.text-header {
   color: white;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header .search-btn {
-  width: 200px;
+.search-btn {
+  width: 250px;
+  height: 35px;
   background-color: #707070;
+  outline: none;
   border: none;
   border-radius: 30px;
-  height: 40px;
   padding: 0 30px;
 }
 main {
@@ -36,50 +37,54 @@ main {
 }
 .cover {
   position: relative;
+  width: 100%;
+  height: 300px;
 }
 .cover img {
   width: 100%;
-  height: 100opx;
+  height: 100%;
   object-fit: cover;
 }
 .overView {
   position: absolute;
   top: 50px;
   left: 20%;
+  background-color: transparent;
 }
 .overView h2 {
   color: white;
 }
 .titleHeader {
   color: white;
-  font-size: 36px;
+  font-size: 30px;
   width: 100%;
+  margin: 0;
 }
 .row {
-  /* display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  overflow: scroll; */
+  max-height: 250px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+.row::-webkit-scrollbar {
+  width: 0;
 }
 .col {
-  /* display: inline-block;
-  width: 250px;
-  height: 150px;
-  margin: 5px 10px;
-  background-color: #151f2e; */
-  width: 12%;
-  margin-right: 2%;
-  float: right;
+  min-width: 150px;
+  height: 100%;
+  background-color: #151f2e;
+  border-radius: 10px;
+  margin-right: 1px;
 }
+
 .col span {
-  font-size: 20px;
+  font-size: 14px;
+  max-height: 10px;
 }
 .cardImg {
-  /* width: 250px;
-  height: 130px;
-  object-fit: cover; */
   width: 100%;
+  max-height: 180px;
+  object-fit: cover;
 }

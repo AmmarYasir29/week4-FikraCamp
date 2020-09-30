@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
-
+import Header from "./Header";
+import Movie from "./Movie";
 export default function Home() {
-  const apiKey = "b8b7c10c913c0bf66d8207a641c23531";
-  const [popularData, setpopularData] = useState([]);
+  // const apiKey = "b8b7c10c913c0bf66d8207a641c23531";
   const [topRate, setTopRate] = useState([]);
+  const [popularData, setpopularData] = useState([]);
   const [upcome, setUpcome] = useState([]);
-  const popularFetch = () => {
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=b8b7c10c913c0bf66d8207a641c23531&language=en-US&page=1"
-    )
-      .then((res) => res.json())
-      .then((data) => setpopularData(data.results));
-  };
   const topRateFetch = () => {
     fetch(
       "https://api.themoviedb.org/3/movie/top_rated?api_key=b8b7c10c913c0bf66d8207a641c23531&language=en-US&page=1"
     )
       .then((res) => res.json())
       .then((data) => setTopRate(data.results));
+  };
+  const popularFetch = () => {
+    fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=b8b7c10c913c0bf66d8207a641c23531&language=en-US&page=1"
+    )
+      .then((res) => res.json())
+      .then((data) => setpopularData(data.results));
   };
   const upcomeFetch = () => {
     fetch(
@@ -26,78 +27,43 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => setUpcome(data.results));
   };
-  useEffect(() => popularFetch(), []);
   useEffect(() => topRateFetch(), []);
+  useEffect(() => popularFetch(), []);
   useEffect(() => upcomeFetch(), []);
   return (
     <>
-      <header>
-        <div className="container">
-          <div className="flex">
-            <span className="text-header">CINE APP</span>
-            <input type="text" className="search-btn" value="Find Move..." />
-          </div>
-        </div>
-      </header>
+      <Header />
       <main>
         <div className="cover">
-          <img
-            src={
-              "https://image.tmdb.org/t/p/original/8g1rUabKleLvovt0Sx6bXgWfC42.jpg"
-            }
-            alt="imgCover"
-          />
+          {/* src={ "https://image.tmdb.org/t/p/original/8g1rUabKleLvovt0Sx6bXgWfC42.jpg"} */}
+          <img src="../public/Mask.png" alt="imgCover" />
           <div className="overView">
-            <h2>list of move</h2>
+            <h2>Lorem, ipsum.</h2>
           </div>
         </div>
         <div className="container">
           <p className="titleHeader">Top Rate</p>
           <div className="row">
             {topRate.map((item) => (
-              <div className="col" key={item.id}>
-                <img
-                  className="cardImg"
-                  src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-                />
-                <span>
-                  {item.original_title.length > 8
-                    ? item.original_title.substr(0, 8) + "...."
-                    : item.original_title}
-                </span>
-              </div>
+              <Movie key={item.id} item={item} />
             ))}
           </div>
-          <p className="titleHeader">Top Popular</p>
+        </div>
+
+        <div className="container">
+          <p className="titleHeader">Most popular</p>
           <div className="row">
             {popularData.map((item) => (
-              <div className="col" key={item.id}>
-                <img
-                  className="cardImg"
-                  src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-                />
-                <span>
-                  {item.original_title.length > 30
-                    ? item.original_title.substr(0, 30) + "...."
-                    : item.original_title}
-                </span>
-              </div>
+              <Movie key={item.id} item={item} />
             ))}
           </div>
+        </div>
+
+        <div className="container">
           <p className="titleHeader">Up Coming</p>
           <div className="row">
             {upcome.map((item) => (
-              <div className="col" key={item.id}>
-                <img
-                  className="cardImg"
-                  src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-                />
-                <span>
-                  {item.original_title.length > 30
-                    ? item.original_title.substr(0, 30) + "...."
-                    : item.original_title}
-                </span>
-              </div>
+              <Movie key={item.id} item={item} />
             ))}
           </div>
         </div>
